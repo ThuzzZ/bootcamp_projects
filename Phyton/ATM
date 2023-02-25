@@ -1,0 +1,60 @@
+class Bank:
+    def __init__(self,name,age,career):
+        self.name = name
+        self.age = age
+        self.career = career
+        self.amount = 0 
+
+
+    def say_hi(self):
+        print(f"Hello {self.name} Welcome to my bank!")
+
+    def deposit(self,deposit):
+        self.amount += deposit
+        print(f"You deposit : {deposit} baht")
+        print(f"Your current money is :{self.amount} baht")
+    
+    def withdraw(self,withdraw):
+        self.amount -= withdraw
+        if  self.amount > 0:
+            print(f"current mooney : {withdraw} baht")
+            print(f"Your current money is :{self.amount} baht")
+        elif self.amount == 0:
+            print(f"Your balance is {self.amount}. Please deposite" )
+        else:
+            self.amount = 0
+            print("Please deposit")
+    
+    
+        class Bank:
+    def __init__(self,name,age,career):
+        self.name = name
+        self.age = age
+        self.career = career
+        self.amount = 0 
+        
+    def create_key(self):
+        key = input(int())
+
+
+    def say_hi(self):
+        print(f"Hello {self.name} Welcome to my bank!")
+
+    def deposit(self,deposit):
+        self.amount += deposit
+        print(f"You deposit : {deposit} baht")
+        print(f"Your current money is :{self.amount} baht")
+    
+    def withdraw(self,withdraw):
+        self.amount -= withdraw
+        if  self.amount > 0:
+            print(f"current mooney : {withdraw} baht")
+            print(f"Your current money is :{self.amount} baht")
+        elif self.amount == 0:
+            print(f"Your balance is {self.amount}. Please deposite" )
+        else:
+            self.amount = 0
+            print("Please deposit")
+    
+    def transfer(self,other):
+        print("please enter")
