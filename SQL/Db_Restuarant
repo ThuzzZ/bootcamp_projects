@@ -1,0 +1,94 @@
+--https://replit.com/@MethusSaengbua/SQLHomeworkbatch6?v=1
+
+--restuarant owner
+--5 Tables
+--1 fact 4 dimensions
+--how to add foreign key
+-- 3 queries analyze data
+-- 1 subquery / with
+.headers on
+.mode markdown
+-- fact table 
+
+create table r (
+  order_id int PRIMARY KEY,
+  order_date date,
+  menu_setid int,
+  cost_id int,
+  chef_id int,
+  waiter_id int,
+    FOREIGN KEY (menu_setid)
+      REFERENCES menu_set (menu_setid),
+    FOREIGN KEY (cost_id)
+      REFERENCES cost (cost_id),
+    FOREIGN KEY (chef_id)
+      REFERENCES chef (chef_id),
+    FOREIGN KEY (waiter_id)
+      REFERENCES waiter_name (waiter_id)
+);
+
+insert into r values
+(1,'20-01-2022',2,3,4,2),
+(2,'20-01-2022',3,4,5,6),
+(3,'20-01-2022',5,5,5,5),
+(4,'21-01-2022',1,1,1,1),
+(5,'21-01-2022',5,4,3,2),
+(6,'21-01-2022',4,4,4,4),
+(7,'22-01-2022',3,3,3,3);
+
+--1 dimension
+create table menu_set(
+  menu_setid primary key,
+  signature_set text
+);
+insert into menu_set values
+  (1,'happy meal'),
+  (2,'Angry meal'),
+  (3,'Mad meal'),
+  (4,'Crazy meal'),
+  (5,'Incredible meal');
+
+--2 dimension
+create table cost (
+  cost_id primary key,
+  cost_price int
+);
+insert into cost values
+  (1,200),
+  (2,300),
+  (3,400),
+  (4,500),
+  (5,600);
+
+create table chef (
+  chef_id primary key,
+  chef_name text
+);
+insert into chef values
+  (1,'Roberto'),
+  (2,'Raul'),
+  (3,'Peepo'),
+  (4,'Coco'),
+  (5,'Teemo');
+
+create table waiter (
+  waiter_id primary key,
+  waiter_name text
+);
+insert into waiter values
+  (1,'zed'),
+  (2,'yasuo'),
+  (3,'Volibear'),
+  (4,'janna'),
+  (5,'kennen');
+
+with sub as (
+  select 
+  chef_name,
+        signature_set
+from r
+join chef on r.chef_id = chef.chef_id
+join menu_set on menu_set.menu_setid =r.menu_setid
+)
+  
+
