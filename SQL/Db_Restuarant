@@ -5,10 +5,7 @@
 --1 fact 4 dimensions
 --how to add foreign key
 -- 3 queries analyze data
--- 1 subquery / with
-.headers on
-.mode markdown
--- fact table 
+-- 1 subquery
 
 create table r (
   order_id int PRIMARY KEY,
